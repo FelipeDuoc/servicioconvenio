@@ -19,8 +19,25 @@ public class servicioConvenio {
     /**
      * This is a sample web service operation
      */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    
+    @WebMethod(operationName = "validaCliente")
+    public int  validaCliente(@WebParam(name = "rut") String rut,
+                              @WebParam(name = "empresa") String empresa) {
+        int retorno;
+        switch (rut) {
+            case "18905756":   
+                    retorno = 1;
+                     break;
+            case "123456789": 
+                    retorno = 0;
+                     break;
+                     
+            default:
+                    retorno = 1;
+                     break;
+        }
+              
+        return retorno;
+        
     }
 }
